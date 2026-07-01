@@ -3,6 +3,8 @@ const app = express()
 const authRouter = require("../routes/Auth.routes")
 require("dotenv").config()
 app.use(express.json())
+const cookie = require("cookie-parser")
+app.use(cookie())
 app.use("/api/auth",authRouter)
 
 module.exports = app
