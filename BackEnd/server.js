@@ -1,5 +1,5 @@
 const app = require("./src/app")
-const connectToDb = require("./Database/database")
+const connectToDb = require("./src/Database/database")
 connectToDb()
 
 app.listen("3000",()=>{
