@@ -1,11 +1,21 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router';
+import UseAuth from '../Hooks/UseAuth';
 const Login = () => {
   const [username, setusername] = useState("");
   const [Password, setPassword] = useState("");
+   const {loginHandler} = UseAuth()
 
-  function submitHandler(e) {
+  function submitHandler(e) { 
     e.preventDefault();
+     
+    loginHandler(username,Password)
+    .then((res)=>{
+        console.log(res)
+    })
+    .catch((res)=>{
+        console.log(res)
+    })
     setusername("");
     setPassword("");
   }

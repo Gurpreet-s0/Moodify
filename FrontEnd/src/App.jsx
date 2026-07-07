@@ -5,6 +5,7 @@ import AppRoutes from './app.routes'
 const App = () => {
   return (
     <div>
+      
       <AppRoutes/>
     </div>
   )
