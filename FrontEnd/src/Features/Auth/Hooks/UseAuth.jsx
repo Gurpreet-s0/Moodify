@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import {AuthContext} from '../Context/auth.context'
 import {register,login,logOut,get_me} from "../auth.services"
 
@@ -9,31 +9,51 @@ const {user,setuser,loading,setloading} = useContext(AuthContext)
 
 async function registerHandler({username,email,password}){
     setloading(true)
-    const res = await register(username,email,password)
-    setuser(res.data)
-    setloading(false)
+    try {
+      const res = await register({ username, email, password })
+      setuser(res.user)
+      return res
+    } finally {
+      setloading(false)
+    }
 }
 
-async function loginHandler({username,password}){
+async function loginHandler({email,password}){
     setloading(true)
-   const res =  await login(username,password)
-    setuser(res.data)
+   try {
+    const res = await login({ email, password })
+    setuser(res.user)
+    return res
+   } finally {
     setloading(false)
+   }
 }
 
 async function get_me_Handler(){
     setloading(true)
-    const res = await get_me()
-    setuser(res.data)
-    setloading(false)
+    try {
+      const res = await get_me()
+      setuser(res.user)
+
+      return res
+    } finally {
+      setloading(false)
+    }
 }
 
 async function logOutHandler(){
     setloading(true)
-    await logOut()
-    setuser(null)
-    setloading(false)
+    try {
+      await logOut()
+      setuser(null)
+    } finally {
+      setloading(false)
+    }
 }  
+
+useEffect(()=>{
+  get_me_Handler()
+},[])
 
   return (
     {registerHandler,loginHandler,get_me_Handler,logOutHandler,user,loading}

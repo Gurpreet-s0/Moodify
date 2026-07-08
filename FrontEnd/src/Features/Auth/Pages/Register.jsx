@@ -1,18 +1,34 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
+import UseAuth from '../Hooks/UseAuth';
 const Register = () => {
+  const navigate = useNavigate()
  const [username, setusername] = useState("");
   const [email, setemail] = useState("");
   const [Password, setPassword] = useState("");
-
-  function submitHandler(e) {
+const {registerHandler,loading} = UseAuth()
+  async function submitHandler(e) {
     e.preventDefault();
-    setusername("");
-    setemail("");
-    setPassword("");
+    try {
+      await registerHandler({ username, email, password: Password });
+      navigate("/");
+      setusername("");
+      setemail("");
+      setPassword("");
+    } catch (error) {
+      console.log(error);
+    }
   }
     
   return (
+    loading ? (
+       <div className="absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2">
+          <div className="text-amber-50 flex items-center gap-3 justify-center h-full w-full flex-col ">
+            <h1 className="text-4xl mb-5">Loading...</h1>
+          </div>
+        </div>
+    ): 
+    (
     <div className="absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2">
       <div className="text-amber-50 flex items-center justify-center h-full w-full flex-col ">
         <h1 className="text-4xl mb-5">Register</h1>
@@ -24,6 +40,7 @@ const Register = () => {
           className="flex flex-col items-center justify-center gap-5 mb-5"
         >
           <input
+          required
             onChange={(e) => {
               setusername(e.target.value);
             }}
@@ -33,6 +50,7 @@ const Register = () => {
             value={username}
           />
           <input
+          required
             onChange={(e) => {
               setemail(e.target.value);
             }}
@@ -42,11 +60,12 @@ const Register = () => {
             value={email}
           />
           <input
+          required
             onChange={(e) => {
               setPassword(e.target.value);
             }}
             className=" border rounded-3xl  px-6 py-3  text-center "
-            type="text"
+            type="password"
             placeholder="Password"
             value={Password}
           />
@@ -59,7 +78,8 @@ const Register = () => {
         </form>
       </div>
     </div>
-  );
+  )
+  )
 }
 
 export default Register
