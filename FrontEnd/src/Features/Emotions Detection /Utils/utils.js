@@ -61,13 +61,14 @@ export default async function init({videoRef,landmarkerRef,stream}) {
       let currentExpression = "😐 Neutral";
 
       if (smileLeft > 0.5 && smileRight > 0.5) {
-        currentExpression = "😄 Happy";
+        currentExpression = "happy";
       } else if (jawOpen > 0.3 && browUp > 0.4) {
-        currentExpression = "😲 Surprised";
+        currentExpression = "surprised";
       } else if (frownLeft > 0.005 && frownRight > 0.005) {
-        currentExpression = "😢 Sad";
+        currentExpression = "sad";
       }
 
       setExpression(currentExpression);
+      return currentExpression
     }
   }
