@@ -7,5 +7,5 @@ const songRouter = express.Router()
 
 
 songRouter.post("/songs",upload.single("song"),uploadSongs)
-songRouter.get("/get_songs",userDetails,getSongs)
+songRouter.get("/get_songs",getSongs)
 module.exports = songRouter
