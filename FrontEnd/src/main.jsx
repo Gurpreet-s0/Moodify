@@ -4,11 +4,13 @@ import "./index.css";
 import App from "./App.jsx";
 import AuthProvider from "../src/Features/Auth/Context/auth.context.jsx";
 import { BrowserRouter } from "react-router";
+import SongContextProvider from "./Features/Emotions Detection /Context/song.context.jsx";
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-  <AuthProvider>
-    <App />
-  </AuthProvider>
-  </BrowserRouter>
-  
+    <AuthProvider>
+      <SongContextProvider>
+        <App />
+      </SongContextProvider>
+    </AuthProvider>
+  </BrowserRouter>,
 );

@@ -10,6 +10,7 @@ async function uploadFile({buffer,fileName,folderName = ""}){
         fileName:fileName,
         folder:folderName
     })
+    
     return res
 }
 

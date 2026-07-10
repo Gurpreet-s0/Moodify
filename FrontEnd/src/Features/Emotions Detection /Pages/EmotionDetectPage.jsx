@@ -1,11 +1,13 @@
-import React from 'react'
-import EmotionDetection from '../Components/EmotionDetection'
-
+import React, { useEffect } from "react";
+import EmotionDetection from "../Components/EmotionDetection";
 
 const EmotionDetectPage = () => {
+  
   return (
-    <div><EmotionDetection/></div>
-  )
-}
+    <div>
+      <EmotionDetection />
+    </div>
+  );
+};
 
-export default EmotionDetectPage
+export default EmotionDetectPage;
