@@ -23,14 +23,14 @@ const {registerHandler,loading} = UseAuth()
   return (
     loading ? (
        <div className="absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2">
-          <div className="text-amber-50 flex items-center gap-3 justify-center h-full w-full flex-col ">
+          <div className="text-slate-900 flex items-center gap-3 justify-center h-full w-full flex-col ">
             <h1 className="text-4xl mb-5">Loading...</h1>
           </div>
         </div>
     ): 
     (
     <div className="absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2">
-      <div className="text-amber-50 flex items-center justify-center h-full w-full flex-col ">
+      <div className="text-slate-900 flex items-center justify-center h-full w-full flex-col ">
         <h1 className="text-4xl mb-5">Register</h1>
 
         <form
@@ -72,7 +72,7 @@ const {registerHandler,loading} = UseAuth()
           <Link className="hover:underline" to="/login">
             Don't have an account?
           </Link>
-          <button className="bg-amber-50 border-2 border-amber-50 text-[#141313] px-6 py-3  rounded-3xl hover:bg-[#141313] hover:text-amber-50 transition cursor-pointer duration-250  ">
+          <button className=" text-[#141313] px-6 py-3  rounded-3xl hover:bg-[#141313] hover:text-amber-50 transition cursor-pointer duration-250  ">
             Register
           </button>
         </form>

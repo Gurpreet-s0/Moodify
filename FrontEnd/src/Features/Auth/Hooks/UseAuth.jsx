@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import {AuthContext} from '../Context/auth.context'
 import {register,login,logOut,get_me} from "../auth.services"
+import Cookies from 'js-cookie';
 
 const UseAuth = () => {
 
@@ -49,11 +50,10 @@ async function logOutHandler(){
     } finally {
       setloading(false)
     }
-}  
-
-useEffect(()=>{
-  get_me_Handler()
-},[])
+} 
+//  useEffect(()=>{
+//   get_me_Handler()
+// },[])
 
   return (
     {registerHandler,loginHandler,get_me_Handler,logOutHandler,user,loading}

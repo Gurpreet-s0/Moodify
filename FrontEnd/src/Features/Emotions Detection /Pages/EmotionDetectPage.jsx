@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
 import EmotionDetection from "../Components/EmotionDetection";
 
-const EmotionDetectPage = () => {
+const EmotionDetectPage = ({setexpression}) => {
   
   return (
     <div>
-      <EmotionDetection />
+      <EmotionDetection setlowerexpression={setexpression} />
     </div>
   );
 };
