@@ -60,7 +60,8 @@ const Login = () => {
             value={Password}
           />
           <Link className="hover:underline" to="/register">
-            Already have an account?
+          Don't have an account?
+            
           </Link>
           <button className=" text-slate-900 px-6 py-3  rounded-3xl hover:bg-slate-900 hover:text-amber-50 transition cursor-pointer duration-250  ">
             Login

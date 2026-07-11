@@ -70,7 +70,7 @@ const {registerHandler,loading} = UseAuth()
             value={Password}
           />
           <Link className="hover:underline" to="/login">
-            Don't have an account?
+            Already have an account?
           </Link>
           <button className=" text-[#141313] px-6 py-3  rounded-3xl hover:bg-[#141313] hover:text-amber-50 transition cursor-pointer duration-250  ">
             Register
