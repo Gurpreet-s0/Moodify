@@ -7,7 +7,7 @@ const songRouter = require("../src/routes/Songs.routes")
 const app = express()
 
 app.use(cors({
-    origin:"https://moodify-v1wp2gav3-gurpreet-s0s-projects.vercel.app",
+    origin:"https://moodify-zeta-virid.vercel.app",
     credentials:true
 }))
 app.use(express.json())
